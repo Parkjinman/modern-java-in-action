@@ -35,4 +35,15 @@ class FilteringApplesTest {
         System.out.println("apples = " + apples);
         System.out.println("apples2 = " + apples2);
     }
+
+    @Test
+    public void filterApplesDistinct() throws Exception {
+        //given
+
+        //when
+
+        //then
+        System.out.println("isGreenApple = " + filteringApples.filterApples(inventory, Apple::isGreenApple));
+        System.out.println("isHeavyApple = " + filteringApples.filterApples(inventory, Apple::isHeavyApple));
+    }
 }

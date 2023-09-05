@@ -17,4 +17,12 @@ public class Apple {
     public String toString() {
         return String.format("Apple{color='%s', weight=%d}", color, weight);
     }
+
+    public static boolean isGreenApple(Apple apple) {
+        return "green".equals(apple.getColor());
+    }
+
+    public static boolean isHeavyApple(Apple apple) {
+        return apple.getWeight() > 150;
+    }
 }
