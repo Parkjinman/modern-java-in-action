@@ -1,4 +1,4 @@
-package modern.java.in.action.studyjava;
+package mordern;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
