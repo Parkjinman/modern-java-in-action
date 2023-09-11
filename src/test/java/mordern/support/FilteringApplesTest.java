@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -25,7 +26,6 @@ class FilteringApplesTest {
     @Test
     public void filterApples() throws Exception {
         //given
-        filteringApples = new FilteringApples();
 
         //when
         List<Apple> apples = filteringApples.filterGreenApples(inventory);
@@ -43,7 +43,10 @@ class FilteringApplesTest {
         //when
 
         //then
-        System.out.println("isGreenApple = " + filteringApples.filterApples(inventory, Apple::isGreenApple));
-        System.out.println("isHeavyApple = " + filteringApples.filterApples(inventory, Apple::isHeavyApple));
+//        System.out.println("isGreenApple = " + filteringApples.filterApples(inventory, FilteringApples::isGreenApple));
+//        System.out.println("isHeavyApple = " + filteringApples.filterApples(inventory, FilteringApples::isHeavyApple));
+
+        System.out.println("isGreenApple = " + filteringApples.filterApples(inventory, (Apple a) -> "green".equals(a.getColor())));
+//        System.out.println("isGreenApple = " + filter(inventory, (Apple a) -> "green".equals(a.getColor())));
     }
 }

@@ -1,6 +1,8 @@
+import mordern.Entity.Apple;
 import mordern.support.CommonUtils;
 
 import java.io.File;
+import java.util.function.Predicate;
 
 public class Main {
 
@@ -10,12 +12,9 @@ public class Main {
 
         System.out.println("start::::::");
 
-        File[] hiddenFiles = commonUtils.getHiddenFiles();
-        File[] hiddenFiles2 = commonUtils.getHiddenFiles2();
-
-        System.out.println(hiddenFiles);
-        System.out.println(hiddenFiles2);
-        System.out.println(hiddenFiles.equals(hiddenFiles2));
+        Predicate<Integer> applePredicate = (num) -> num < 10;
+        System.out.println(applePredicate);
+        System.out.println(applePredicate.test(5));
 
         System.out.println("end::::::");
     }
