@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 @SpringBootTest
@@ -47,7 +48,21 @@ class FilteringApplesTest {
 //        System.out.println("isGreenApple = " + filteringApples.filterApples(inventory, (Apple a) -> "green".equals(a.getColor())));
 //        System.out.println("isGreenApple = " + filter(inventory, (Apple a) -> "green".equals(a.getColor())));
 
-        List<Apple> redAndHeavyApples = FilteringApples.filterApples(inventory, new FilteringApples.AppleRedAndHeavyPredicate());
-        System.out.println("redAndHeavyApples : " + redAndHeavyApples);
+//        List<Apple> redAndHeavyApples = FilteringApples.filterApples(inventory, new FilteringApples.AppleRedAndHeavyPredicate());
+//        System.out.println("redAndHeavyApples : " + redAndHeavyApples);
+
+        System.out.println(inventory);
+
+//        inventory.sort(new Comparator<Apple>() {
+//
+//            @Override
+//            public int compare(Apple a1, Apple a2) {
+//                return a1.getWeight() - a2.getWeight();
+//            }
+//        });
+        inventory.sort((Apple a1, Apple a2) -> a1.getWeight() - a2.getWeight());
+
+        System.out.println(inventory);
+
     }
 }
