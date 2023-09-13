@@ -7,9 +7,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Predicate;
-
-import static org.assertj.core.api.Assertions.*;
 
 @SpringBootTest
 class FilteringApplesTest {
@@ -20,7 +17,8 @@ class FilteringApplesTest {
     private final List<Apple> inventory = Arrays.asList(
         new Apple(80, "green"),
         new Apple(155, "green"),
-        new Apple(120, "red")
+        new Apple(120, "red"),
+        new Apple(151, "red")
     );
 
     @Test
@@ -46,7 +44,10 @@ class FilteringApplesTest {
 //        System.out.println("isGreenApple = " + filteringApples.filterApples(inventory, FilteringApples::isGreenApple));
 //        System.out.println("isHeavyApple = " + filteringApples.filterApples(inventory, FilteringApples::isHeavyApple));
 
-        System.out.println("isGreenApple = " + filteringApples.filterApples(inventory, (Apple a) -> "green".equals(a.getColor())));
+//        System.out.println("isGreenApple = " + filteringApples.filterApples(inventory, (Apple a) -> "green".equals(a.getColor())));
 //        System.out.println("isGreenApple = " + filter(inventory, (Apple a) -> "green".equals(a.getColor())));
+
+        List<Apple> redAndHeavyApples = FilteringApples.filterApples(inventory, new FilteringApples.AppleRedAndHeavyPredicate());
+        System.out.println("redAndHeavyApples : " + redAndHeavyApples);
     }
 }

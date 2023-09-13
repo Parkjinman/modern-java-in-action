@@ -1,6 +1,7 @@
 package mordern.support;
 
 import mordern.Entity.Apple;
+import mordern.interfaces.ApplePredicate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +48,14 @@ public class FilteringApples {
         return apple.getWeight() > 150;
     }
 
-    public static List<Apple> filterApples(List<Apple> inventory, Predicate<Apple> p) {
+//    private final String RED = "red";
+    public static class AppleRedAndHeavyPredicate implements ApplePredicate {
+        public boolean test(Apple apple) {
+            return "red".equals(apple.getColor()) && apple.getWeight() > 150;
+        }
+    }
+
+    public static List<Apple> filterApples(List<Apple> inventory, ApplePredicate p) {
         List<Apple> result = new ArrayList<>();
         for (Apple apple : inventory) {
             if (p.test(apple)) {
@@ -56,4 +64,14 @@ public class FilteringApples {
         }
         return result;
     }
+
+    /*public static List<Apple> filterApples(List<Apple> inventory, Predicate<Apple> p) {
+        List<Apple> result = new ArrayList<>();
+        for (Apple apple : inventory) {
+            if (p.test(apple)) {
+                result.add(apple);
+            }
+        }
+        return result;
+    }*/
 }
