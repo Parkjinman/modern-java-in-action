@@ -1,12 +1,14 @@
 package mordern.support;
 
+import org.springframework.stereotype.Component;
+
 import java.io.File;
 import java.io.FileFilter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
 
-
+@Component
 public class CommonUtils {
 
     public static File[] getHiddenFiles() {
@@ -22,6 +24,10 @@ public class CommonUtils {
     }
 
     public static void process(Runnable r) {
+        r.run();
+    }
+
+    public static void excute(Runnable r) {
         r.run();
     }
 
