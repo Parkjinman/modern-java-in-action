@@ -11,13 +11,16 @@ public class ExecuteAround {
 
   public static void main(String... args) throws IOException {
     // 더 유연하게 리팩토링할 메서드
+    System.out.println("리팩토링 이전");
     String result = processFileLimited();
     System.out.println(result);
 
-    System.out.println("---");
+    System.out.println("리팩토링 이후");
 
     String oneLine = processFile((BufferedReader b) -> b.readLine());
     System.out.println(oneLine);
+
+    System.out.println("------");
 
     String twoLines = processFile((BufferedReader b) -> b.readLine() + b.readLine());
     System.out.println(twoLines);
